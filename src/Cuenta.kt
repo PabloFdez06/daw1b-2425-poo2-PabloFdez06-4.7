@@ -4,7 +4,7 @@ class Cuenta(val numCuenta: Int, var saldo: Double) {
     // se puede consultar el saldo disponible, recibir abonos y realizar pagos.
 
     fun comprobarSaldo(): String{
-        return ("El saldo total disponible actualmente en la cuenta es de: $saldo")
+        return ("El saldo total disponible actualmente en la cuenta nº${numCuenta} es de: $saldo")
     }
 
     fun recibirAbono(cantidad: Double){

@@ -1,11 +1,14 @@
-class Persona(val dni: String, val cuentas: Array<Cuenta?> = arrayOfNulls(3)){
+class Persona(val dni: String){
+    val cuentas: Array<Cuenta?> = arrayOfNulls(3)
 
-    fun añadirCuenta(ingresoCuenta: Cuenta) {
+    fun añadirCuenta(ingresoCuenta: Cuenta): Boolean {
         for ((i, cuenta) in cuentas.withIndex()) {
-            if (cuenta != null) {
+            if (cuenta == null) {
                 cuentas[i] = ingresoCuenta
+                return true
             }
         }
+        return false
     }
 
     fun comprobarMoroso(persona: Persona): Boolean {
@@ -28,6 +31,7 @@ class Persona(val dni: String, val cuentas: Array<Cuenta?> = arrayOfNulls(3)){
             if (cuenta1 != null && cuenta2 != null){
                 cuenta1.realizarPago(cantidadTransferencia)
                 cuenta2.recibirAbono(cantidadTransferencia)
+                println("TRANSFERENCIA REALIZADA CON EXITO!")
             }
         }
     }
